@@ -1,0 +1,325 @@
+<!-- templates/index.html - Main layout for MedaiyeseHomeCareServices -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medaiyese Home Care Services</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" aria-label="Primary">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="#hero">
+                    <span class="logo-container">
+                        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Medaiyese Home Care Logo" class="nav-logo">
+                        <span class="site-title">Medaiyese Home Care</span>
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#request-care">Request Care</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                        <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="/appointment">Book Appointment</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-5" id="hero">
+        <section class="hero-carousel">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hero-slide hero-slide-1 d-flex align-items-center justify-content-center">
+                            <div class="hero-text-container">
+                                <div class="hero-text-content">
+                                    <h1 class="hero-text">Quality Home Care Services for Your Loved Ones in Fredericton</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide hero-slide-2 d-flex align-items-center justify-content-center">
+                            <div class="hero-text-container">
+                                <div class="hero-text-content">
+                                    <h1 class="hero-text">Personalized home care that gives families confidence and keeps loved ones safe, supported, and connected in Fredericton</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide hero-slide-3 d-flex align-items-center justify-content-center">
+                            <div class="hero-text-container">
+                                <div class="hero-text-content">
+                                    <p class="hero-text">Medaiyese Home Care Services provides trusted caregivers and customized care plans to ensure your loved ones receive dignified, compassionate support every day, right in the comfort of home</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev carousel-control-subtle" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next carousel-control-subtle" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="services" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="text-uppercase text-secondary fw-semibold">Care services in Fredericton</p>
+                    <h2 class="fw-bold">Care Services Designed for Every Family in Fredericton</h2>
+                    <p class="text-muted mb-2">At Medaiyese Home Care Services, we help families in Fredericton and surrounding communities find compassionate, dependable in-home support. Our caregivers are matched to your loved one’s needs whether they require daily assistance, companionship, or specialized personal support.</p>
+                    <p class="text-muted mb-0">We focus on comfort, dignity, safety, and emotional connection, so families feel confident every step of the way.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 service-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="icon-circle mb-3" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2h-4l-4 4v-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                </div>
+                                <p class="text-uppercase text-secondary fw-semibold mb-1">🌟 Companion Care</p>
+                                <h3 class="h5 mb-2">Meaningful support that brings comfort, joy, and connection.</h3>
+                                <p class="text-muted mb-3">We provide uplifting companionship through conversations, light activities, errands, and social outings. Our goal is to keep your loved one active, engaged, and emotionally supported, especially when living alone.</p>
+                                <ul class="text-muted mb-3">
+                                    <li>✔ Social interaction</li>
+                                    <li>✔ Light errands &amp; walks</li>
+                                    <li>✔ Enjoyable activities</li>
+                                    <li>✔ Emotional support</li>
+                                </ul>
+                                <p class="text-muted mb-0">Perfect for seniors who need friendly company and gentle daily support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 service-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="icon-circle mb-3" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <p class="text-uppercase text-secondary fw-semibold mb-1">🌟 Personal Support</p>
+                                <h3 class="h5 mb-2">Respectful assistance for daily comfort and independence.</h3>
+                                <p class="text-muted mb-3">Our trained caregivers offer discreet support with personal routines, helping your loved one stay safe and confident at home.</p>
+                                <ul class="text-muted mb-3">
+                                    <li>✔ Bathing &amp; grooming</li>
+                                    <li>✔ Mobility assistance</li>
+                                    <li>✔ Dressing &amp; hygiene</li>
+                                    <li>✔ Medication reminders</li>
+                                </ul>
+                                <p class="text-muted mb-0">This service prioritizes dignity, safety, and confidence—ideal for aging adults or those recovering from illness.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 service-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="icon-circle mb-3" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                                <p class="text-uppercase text-secondary fw-semibold mb-1">🌟 Family Respite Care</p>
+                                <h3 class="h5 mb-2">Because caregivers deserve care too.</h3>
+                                <p class="text-muted mb-3">We step in whenever families need a break whether for rest, travel, work, or personal commitments. You can recharge knowing your loved one is in compassionate, capable hands.</p>
+                                <ul class="text-muted mb-3">
+                                    <li>✔ Short-term or scheduled relief</li>
+                                    <li>✔ Peace of mind during breaks</li>
+                                    <li>✔ Support during travel or busy seasons</li>
+                                </ul>
+                                <p class="text-muted mb-0">This service ensures you can take time for yourself without worry.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 service-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="icon-circle mb-3" aria-hidden="true">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18"/><path d="M6 3h12"/><path d="M6 21h12"/><path d="M4 7v13a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7"/></svg>
+                                </div>
+                                <p class="text-uppercase text-secondary fw-semibold mb-1">🌟 Care Coordination</p>
+                                <h3 class="h5 mb-2">Professional oversight that keeps every care plan on track.</h3>
+                                <p class="text-muted mb-3">Our team coordinates nurse check-ins, tracks appointments, and ensures every aspect of care is organized and communicated clearly. Families receive regular updates and full transparency.</p>
+                                <ul class="text-muted mb-3">
+                                    <li>✔ Nurse-directed care planning</li>
+                                    <li>✔ Appointment &amp; schedule tracking</li>
+                                    <li>✔ Regular care reports</li>
+                                </ul>
+                                <p class="text-muted mb-0">This service creates a seamless, dependable experience for clients with more complex needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 g-4 align-items-start">
+                    <div class="col-lg-8">
+                        <h3 class="h4 mb-3">🏡 Why Families Choose Medaiyese Home Care (Fredericton)</h3>
+                        <ul class="text-muted mb-3">
+                            <li>Trusted caregivers matched to individual needs</li>
+                            <li>Warm, personalized approach</li>
+                            <li>Consistent communication and transparency</li>
+                            <li>Locally based care rooted in compassion and dignity</li>
+                            <li>Flexible plans for short- or long-term support</li>
+                        </ul>
+                        <p class="text-muted mb-0">Our mission is simple: to help your loved ones stay safe, supported, and connected right at home.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h3 class="h5 mb-2">📞 Ready to Discuss Care Options?</h3>
+                                <p class="text-muted mb-3">We’re here to help you choose the right service for your loved one. Contact us today to schedule a consultation or book an appointment.</p>
+                                <a href="/appointment" class="btn btn-primary w-100 mb-2">Book an Appointment</a>
+                                <a href="#request-care" class="btn btn-outline-primary w-100">Request In-Home Care</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-care" class="py-5">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-5">
+                        <p class="text-uppercase text-secondary fw-semibold">Request care</p>
+                        <h2 class="fw-bold mb-3">Tell us about your loved one.</h2>
+                        <p class="text-muted">Please complete the form and our care coordinator will reach out within one business day. All details are kept confidential.</p>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2">• Local caregivers with background checks</li>
+                            <li class="mb-2">• Flexible schedules: hourly, daily, live-in</li>
+                            <li class="mb-2">• Transparent pricing and regular updates</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <form id="careRequestForm" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="fullName" class="form-label">Full name</label>
+                                            <input type="text" class="form-control" id="fullName" name="full_name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">Phone</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="startDate" class="form-label">Preferred start date</label>
+                                            <input type="date" class="form-control" id="startDate" name="start_date" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="address" name="address" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="careType" class="form-label">Type of care</label>
+                                            <select class="form-select" id="careType" name="care_type" required>
+                                                <option value="" selected disabled>Select an option</option>
+                                                <option value="Companion Care">Companion Care</option>
+                                                <option value="Personal Care">Personal Care</option>
+                                                <option value="Respite Care">Respite Care</option>
+                                                <option value="Care Coordination">Care Coordination</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="notes" class="form-label">Additional notes</label>
+                                            <textarea class="form-control" id="notes" name="notes" rows="4" placeholder="Share important routines, medical considerations, or scheduling needs."></textarea>
+                                        </div>
+                                        <div class="d-none">
+                                            <label for="serviceInterest">Leave blank</label>
+                                            <input type="text" id="serviceInterest" name="service_interest" tabindex="-1" autocomplete="off">
+                                        </div>
+                                        <input type="hidden" id="csrfToken" name="csrf_token" value="{{ csrf_token }}">
+                                    </div>
+                                    <div class="mt-4 d-flex align-items-center gap-3">
+                                    <button class="btn btn-primary" type="submit" id="submitBtn">Submit Request</button>
+                                    <div class="spinner-border text-primary d-none" role="status" id="formSpinner" aria-hidden="true"></div>
+                                    <div class="visually-hidden" role="status" aria-live="polite" id="spinnerText">Submitting</div>
+                                    </div>
+                                    <div class="mt-3" id="formAlert" role="status" aria-live="polite"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <p class="mb-2 fw-bold">Medaiyese Home Care Services</p>
+                    <p class="mb-2">5 Hazen Ct, Fredericton, NB E3B 5K9, Canada</p>
+                    <p class="mb-2">Phone: (506) 478-3683</p>
+                    <p class="mb-3">Email: service@medaiyesehomecare.com</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.16 1.8.16v2h-1c-1 0-1.3.63-1.3 1.3V12h2.2l-.35 3h-1.85v7A10 10 0 0 0 22 12Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.5 7.2c.01.17.01.35.01.52 0 5.27-4 11.35-11.35 11.35-2.25 0-4.35-.66-6.11-1.8a8.06 8.06 0 0 0 5.94-1.66 3.98 3.98 0 0 1-3.72-2.76c.6.09 1.16.09 1.77-.07a3.96 3.96 0 0 1-3.18-3.89v-.05c.53.29 1.15.46 1.8.48A3.95 3.95 0 0 1 4.7 5.1a11.24 11.24 0 0 0 8.15 4.13 3.95 3.95 0 0 1 6.73-3.6 7.83 7.83 0 0 0 2.5-.96 3.97 3.97 0 0 1-1.74 2.18 7.88 7.88 0 0 0 2.27-.62 8.27 8.27 0 0 1-2.11 2.17Z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/medaiyesehomecare/" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 5 5 5.01 5.01 0 0 0-5-5Zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3Zm6.5-8.88a1.17 1.17 0 1 0 1.17 1.17 1.17 1.17 0 0 0-1.17-1.17ZM21 6.3a4.3 4.3 0 0 0-1.17-3.05A4.3 4.3 0 0 0 16.78 2H7.22A4.3 4.3 0 0 0 4.17 3.25 4.3 4.3 0 0 0 3 6.3v9.56A4.3 4.3 0 0 0 4.17 18.9a4.3 4.3 0 0 0 3.05 1.17h9.56a4.3 4.3 0 0 0 3.05-1.17A4.3 4.3 0 0 0 21 15.86Zm-2 9.56a2.3 2.3 0 0 1-2.22 2.22H7.22a2.3 2.3 0 0 1-2.22-2.22V6.3A2.3 2.3 0 0 1 7.22 4.08h9.56A2.3 2.3 0 0 1 19 6.3Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9h3v10h-3Zm1.5-5a1.75 1.75 0 1 1-1.75 1.75A1.75 1.75 0 0 1 8 4Zm4 5h2.88l.17 1.38h.08a3.16 3.16 0 0 1 2.82-1.56c3 0 3.55 1.98 3.55 4.55V19h-3v-5.05c0-1.22-.02-2.8-1.71-2.8-1.72 0-1.98 1.34-1.98 2.72V19h-3Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-1 fw-semibold">Visit us</p>
+                    <p class="mb-3">We welcome scheduled appointments Monday–Saturday. Walk-ins are accommodated when possible.</p>
+                    <p class="mb-1">Office Hours:</p>
+                    <p class="mb-3">Mon–Fri 8am–6pm • Sat 9am–1pm</p>
+                    <p class="mb-1">After-hours nurse line available for clients 24/7.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-map ratio ratio-4x3">
+                        <iframe 
+                        title="Company location" 
+                        src="https://www.google.com/maps/embed?&q=5+Hazen+Ct,+Fredericton,+NB+E3B+5K9,+Canada&output=embed" 
+                        width="600" 
+                        height="450" 
+                        style="border:0" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                      </iframe>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0">© <span id="year"></span> Medaiyese Home Care Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

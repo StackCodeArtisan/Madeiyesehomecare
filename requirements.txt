@@ -1,0 +1,2 @@
+Flask==3.0.3
+# Optional: Flask-Mail==0.9.1 for alternative email sending

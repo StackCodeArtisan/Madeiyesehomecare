@@ -1,0 +1,161 @@
+<!-- templates/appointment.html - Appointment booking page -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book an Appointment | Medaiyese Home Care</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" aria-label="Appointment navigation">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">Medaiyese Home Care</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#appointmentNav" aria-controls="appointmentNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="appointmentNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Request Care</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/appointment">Book Appointment</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="py-5 appointment-hero text-white">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <p class="text-uppercase fw-semibold mb-2">Visit our care office</p>
+                        <h1 class="display-5 fw-bold mb-3">Schedule an in-person conversation with a care officer.</h1>
+                        <p class="lead mb-0">Share goals, review care plans, and tour our office so you can feel confident before services begin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-6">
+                        <div class="mb-4">
+                            <h2 class="fw-bold">Appointment request</h2>
+                            <p class="text-muted mb-0">All fields marked * are required. We reply with a confirmation email and calendar invite within one business day.</p>
+                        </div>
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <form id="appointmentForm" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label" for="appointmentFullName">Full name *</label>
+                                            <input type="text" class="form-control" id="appointmentFullName" name="full_name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="appointmentEmail">Email *</label>
+                                            <input type="email" class="form-control" id="appointmentEmail" name="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="appointmentPhone">Phone number *</label>
+                                            <input type="tel" class="form-control" id="appointmentPhone" name="phone" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="appointmentDate">Preferred date *</label>
+                                            <input type="date" class="form-control" id="appointmentDate" name="preferred_date" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="appointmentTime">Preferred time *</label>
+                                            <input type="time" class="form-control" id="appointmentTime" name="preferred_time" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="appointmentReason">Reason for appointment</label>
+                                            <textarea class="form-control" id="appointmentReason" name="reason" rows="4" placeholder="Share topics you would like to review."></textarea>
+                                        </div>
+                                        <div class="d-none">
+                                            <label for="appointmentGuard">Leave blank</label>
+                                            <input type="text" id="appointmentGuard" name="appointment_guard" tabindex="-1" autocomplete="off">
+                                        </div>
+                                        <input type="hidden" id="appointmentCsrfToken" name="csrf_token" value="{{ csrf_token }}">
+                                    </div>
+                                    <div class="mt-4 d-flex align-items-center gap-3">
+                                        <button class="btn btn-primary" type="submit" id="appointmentSubmitBtn">Submit Request</button>
+                                        <div class="spinner-border text-primary d-none" role="status" id="appointmentSpinner" aria-hidden="true"></div>
+                                        <div class="visually-hidden" role="status" aria-live="polite" id="appointmentSpinnerText">Submitting</div>
+                                    </div>
+                                    <div class="mt-3" id="appointmentAlert" role="status" aria-live="polite"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info-panel h-100 p-4 rounded-4 shadow-sm">
+                            <h3 class="h5 text-uppercase text-secondary">What to expect</h3>
+                            <ul class="list-unstyled text-muted mb-4">
+                                <li class="mb-2">• Meet with a senior care officer for 45 minutes</li>
+                                <li class="mb-2">• Review care history, insurance, and scheduling</li>
+                                <li class="mb-2">• Tour our resource center and meet on-call nurses</li>
+                            </ul>
+                            <div class="border-top pt-3">
+                                <p class="fw-semibold mb-1">Need a virtual meeting instead?</p>
+                                <p class="mb-0">Email <a href="mailto:hello@medaiyesehomecare.com" class="text-decoration-none">hello@medaiyesehomecare.com</a> and we will arrange a secure video call.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-4">
+                    <p class="mb-2 fw-bold">Medaiyese Home Care Services</p>
+                    <p class="mb-2">123 Care Lane, Winnipeg, MB</p>
+                    <p class="mb-2">Phone: (204) 555-1842</p>
+                    <p class="mb-3">Email: hello@medaiyesehomecare.com</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.16 1.8.16v2h-1c-1 0-1.3.63-1.3 1.3V12h2.2l-.35 3h-1.85v7A10 10 0 0 0 22 12Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.5 7.2c.01.17.01.35.01.52 0 5.27-4 11.35-11.35 11.35-2.25 0-4.35-.66-6.11-1.8a8.06 8.06 0 0 0 5.94-1.66 3.98 3.98 0 0 1-3.72-2.76c.6.09 1.16.09 1.77-.07a3.96 3.96 0 0 1-3.18-3.89v-.05c.53.29 1.15.46 1.8.48A3.95 3.95 0 0 1 4.7 5.1a11.24 11.24 0 0 0 8.15 4.13 3.95 3.95 0 0 1 6.73-3.6 7.83 7.83 0 0 0 2.5-.96 3.97 3.97 0 0 1-1.74 2.18 7.88 7.88 0 0 0 2.27-.62 8.27 8.27 0 0 1-2.11 2.17Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 5 5 5.01 5.01 0 0 0-5-5Zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3Zm6.5-8.88a1.17 1.17 0 1 0 1.17 1.17 1.17 1.17 0 0 0-1.17-1.17ZM21 6.3a4.3 4.3 0 0 0-1.17-3.05A4.3 4.3 0 0 0 16.78 2H7.22A4.3 4.3 0 0 0 4.17 3.25 4.3 4.3 0 0 0 3 6.3v9.56A4.3 4.3 0 0 0 4.17 18.9a4.3 4.3 0 0 0 3.05 1.17h9.56a4.3 4.3 0 0 0 3.05-1.17A4.3 4.3 0 0 0 21 15.86Zm-2 9.56a2.3 2.3 0 0 1-2.22 2.22H7.22a2.3 2.3 0 0 1-2.22-2.22V6.3A2.3 2.3 0 0 1 7.22 4.08h9.56A2.3 2.3 0 0 1 19 6.3Z"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9h3v10h-3Zm1.5-5a1.75 1.75 0 1 1-1.75 1.75A1.75 1.75 0 0 1 8 4Zm4 5h2.88l.17 1.38h.08a3.16 3.16 0 0 1 2.82-1.56c3 0 3.55 1.98 3.55 4.55V19h-3v-5.05c0-1.22-.02-2.8-1.71-2.8-1.72 0-1.98 1.34-1.98 2.72V19h-3Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="mb-1 fw-semibold">Visit us</p>
+                    <p class="mb-3">We welcome scheduled appointments Monday–Saturday. Walk-ins are accommodated when possible.</p>
+                    <p class="mb-1">Office Hours:</p>
+                    <p class="mb-3">Mon–Fri 8am–6pm • Sat 9am–1pm</p>
+                    <p class="mb-1">After-hours nurse line available for clients 24/7.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-map ratio ratio-4x3">
+                        <iframe title="Medaiyese Home Care location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.092843999892!2d-97.138374!3d49.895136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea715f71bda3fb%3A0xd0b4fcd8e671c5f4!2sWinnipeg%2C%20MB%2C%20Canada!5e0!3m2!1sen!2sca!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p class="mb-0">© <span id="year"></span> Medaiyese Home Care Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
