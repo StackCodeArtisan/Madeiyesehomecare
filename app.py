@@ -277,6 +277,6 @@ def submit_appointment():
         app.logger.info('Appointment request submitted by %s', safe_payload['full_name'])
     return jsonify({'success': ok, 'message': message, 'csrf_token': issue_csrf_token()}), status_code
 
-
 if __name__ == '__main__':
-    app.run(debug=os.environ.get('FLASK_ENV') == 'development')
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT
+    app.run(host='0.0.0.0', port=port, debug=os.environ.get('FLASK_ENV') == 'development')
